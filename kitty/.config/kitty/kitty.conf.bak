@@ -1,0 +1,8 @@
+shell zsh
+font_family JetBrainsMono Nerd Font
+background_opacity 0.8
+include themes/Obsidian.conf
+
+enable_audio_bell no
+confirm_os_window_close 0
+scrollback_lines 10000

@@ -1,0 +1,123 @@
+/*
+ * Waybar Custom CSS - Modern Pill Design
+ * Features: Floating look, soft dark-mode colors, and rounded modules
+ */
+
+/* Global Reset and Font Settings */
+* {
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+/* Main Bar Window */
+window#waybar {
+    /* Transparent background to make modules look like floating pills */
+    background-color: transparent; 
+    color: #cad3f5;
+}
+
+/* Tooltip Styling */
+tooltip {
+    background: #24273a;
+    border-radius: 12px;
+    border: 2px solid #8aadf4;
+}
+
+tooltip label {
+    color: #cad3f5;
+    padding: 5px;
+}
+
+/* * Base style applied to all modules (Left and Right)
+ * This creates the distinct pill-shaped background for each item
+ */
+.modules-left > widget > box,
+.modules-right > widget > box,
+.modules-left > widget > label,
+.modules-right > widget > label,
+#workspaces {
+    background-color: #24273a;
+    padding: 2px 14px;
+    margin: 4px 6px;
+    border-radius: 16px;
+    border: 1px solid #363a4f;
+}
+
+/* Workspaces Module Specifics */
+#workspaces {
+    padding: 0 5px;
+}
+
+#workspaces button {
+    color: #5b6078;
+    padding: 0 8px;
+    margin: 4px 2px;
+    border-radius: 1px;
+    transition: all 0.2s ease;
+}
+
+/* Hover effect for inactive workspaces */
+#workspaces button:hover {
+    background-color: #363a4f;
+    color: #cad3f5;
+}
+
+/* Active workspace highlight (Soft Blue) */
+#workspaces button.focused {
+    background-color: #8aadf4;
+    color: #1e2030;
+}
+
+/* * Color Accents for Specific Modules 
+ */
+#clock {
+    color: #eed49f; /* Soft Yellow */
+}
+
+#battery {
+    color: #a6da95; /* Soft Green */
+}
+
+#battery.warning {
+    color: #f5a97f; /* Orange */
+}
+
+#battery.critical {
+    color: #ed8796; /* Red */
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#pulseaudio {
+    color: #8bd5ca; /* Teal */
+}
+
+#network {
+    color: #f5bde6; /* Pink */
+}
+
+#custom-power {
+    color: #ed8796;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+#tray {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+/* Alert Animation for Critical Battery */
+@keyframes blink {
+    to {
+        background-color: #ed8796;
+        color: #1e2030;
+    }
+}
