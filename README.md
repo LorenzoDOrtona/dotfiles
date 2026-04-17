@@ -10,6 +10,16 @@ Personal configuration files for a Wayland-based Hyprland environment.
 - **Bar:** [Waybar](https://github.com/Alexays/Waybar)
 - **Idle/Lock:** Hypridle & Hyprlock
 
+## 📦 Dependencies
+Most packages can be installed via `pacman` or `yay`.
+
+### 🍌 Appearance
+The cursor theme used in this setup is **Banana**:
+```bash
+# Arch Linux (AUR)
+yay -S banana-cursor-bin
+```
+
 ## 🚀 Setup
 This repo is organized for [GNU Stow](https://www.gnu.org/software/stow/).
 
