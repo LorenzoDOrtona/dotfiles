@@ -54,22 +54,23 @@ tooltip label {
 
 #workspaces button {
     color: #5b6078;
-    padding: 0 8px;
-    margin: 4px 2px;
-    border-radius: 1px;
-    transition: all 0.2s ease;
+    padding: 0 4px;
+    margin: 4px 4px;
+    border-radius: 16px;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.68);
 }
 
-/* Hover effect for inactive workspaces */
+/* Hover effect */
 #workspaces button:hover {
-    background-color: #363a4f;
+    background-color: rgba(138, 173, 244, 0.1);
     color: #cad3f5;
 }
 
-/* Active workspace highlight (Soft Blue) */
-#workspaces button.focused {
-    background-color: #8aadf4;
-    color: #1e2030;
+/* Active workspace - Minimalist "dondeggiante" style */
+#workspaces button.active {
+    color: #8aadf4;
+    background-color: transparent;
+    padding: 0 10px; /* Si allarga leggermente quando attivo */
 }
 
 /* * Color Accents for Specific Modules 

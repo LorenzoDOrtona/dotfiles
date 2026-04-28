@@ -7,26 +7,20 @@
     "spacing": 0, // Gaps between modules (0px)
     // Choose the order of the modules
     "modules-left": [
-        "sway/workspaces",
-        "sway/mode",
-        "sway/scratchpad",
-        "custom/media",
-        "cpu",
-        "memory",
+     //   "custom/media",
         "temperature",
         "backlight",
         "pulseaudio",
-        "idle_inhibitor",
-    ],
-    "modules-center": [
-        "sway/window"
+        "idle_inhibitor", 
+       // "hyprland/workspaces",
+        "hyprland/submap",
+        "hyprland/scratchpad",
     ],
     "modules-right": [
         "mpd", 
         "network",
         "power-profiles-daemon",
         "keyboard-state",
-        "sway/language",
         "battery",
         "battery#bat2",
         "clock",
@@ -34,22 +28,17 @@
         "custom/power"
     ],
     // Modules configuration
-    // "sway/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "warp-on-scroll": false,
-    //     "format": "{name}: {icon}",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }
-    // },
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{icon}",
+        "format-icons": {
+            "urgent": "",
+            "active": "",
+            "default": ""
+        }
+    },
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
@@ -114,13 +103,6 @@
         "format": "{:%H:%M  %d/%m/%Y}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%H:%M}"
-    },
-    "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
-    },
-    "memory": {
-        "format": "{}% "
     },
     "temperature": {
         // "thermal-zone": 2,
