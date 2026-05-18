@@ -204,5 +204,6 @@ HISTFILE=~/.zsh_history
 
 setopt SHARE_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
-# SSH Agent Auto-start
-
+# SSH Agent Auto-startù
+# Zoxide
+eval "$(zoxide init zsh)"
