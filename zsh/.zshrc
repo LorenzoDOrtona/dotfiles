@@ -59,8 +59,8 @@ alias rh='fc -R'
 alias v="nvim"
 alias k="kubectl"
 alias g="git"
-alias ga= "git add"
-alias gc= "git commit"
+alias ga="git add"
+alias gc="git commit"
 alias gs="git status"
 alias gl="git log"
 alias clear='clear && fastfetch'
@@ -74,7 +74,13 @@ DIRSTACKSIZE=60
 
 # Autoload zsh functions.
 fpath=(~/.zsh/functions $fpath)
-autoload -U ~/.zsh/functions/*(:t)
+# Store the potential functions in an array using the Null Glob flag
+local custom_funcs=(~/.zsh/functions/*(N:t))
+
+# Autoload the functions only if the array contains at least one item
+if [[ ${#custom_funcs[@]} -gt 0 ]]; then
+    autoload -U "${custom_funcs[@]}"
+fi
 
 fignore=(\~)
 
@@ -126,7 +132,7 @@ setopt \
   shwordsplit \
   transient_rprompt \
   hist_ignore_space \
-  no_equals \
+  no_equals 
 
 # modules
 autoload -U url-quote-magic bracketed-paste-magic
@@ -151,10 +157,10 @@ fi
 if [[ "$USER" == "root" ]] ; then
 	PROMPT=$'%B%F{red}%n%b%F{default}@%B%F{cyan}%m%b%F{default}:%B%F{blue}%~%b%F{default}%F{default} %(?.-.%F{red}%?%F{default})%(!.%F{red}#%F{default}.%F{green}$%F{default}) '
 else
-	preexec_functions+='preexec_update_git_vars'
-	precmd_functions+='precmd_update_git_vars'
-	chpwd_functions+='chpwd_update_git_vars'
-	PROMPT=$'%B%F{green}%n%b%F{default}@%B%F{cyan}%m%b%F{default}:%B%F{blue}%~%b%F{default}%F{yellow}$(prompt_git_info)%F{default} %(?.-.%F{red}%?%F{default})%(!.%F{red}#%F{default}.%F{green}$%F{default}) '
+    # preexec_functions+='preexec_update_git_vars'
+    # precmd_functions+='precmd_update_git_vars'
+    # chpwd_functions+='chpwd_update_git_vars'
+    PROMPT=$'%B%F{green}%n%b%F{default}@%B%F{cyan}%m%b%F{default}:%B%F{blue}%~%b%F{default} %(?.-.%F{red}%?%F{default})%(!.%F{red}#%F{default}.%F{green}$%F{default}) '
 fi
 
 # tab-completion
@@ -196,8 +202,8 @@ setopt notify
 #Added personally
 # ---- FIX ZSH PLUGINS ----
 fastfetch
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history

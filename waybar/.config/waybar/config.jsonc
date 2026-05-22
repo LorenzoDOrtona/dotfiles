@@ -14,15 +14,15 @@
         "idle_inhibitor", 
        // "hyprland/workspaces",
         "hyprland/submap",
-        "hyprland/scratchpad",
+        "hyprland/scratchpad"
     ],
     "modules-right": [
         "mpd", 
         "network",
+        "bluetooth", // Added bluetooth here
         "power-profiles-daemon",
         "keyboard-state",
         "battery",
-        "battery#bat2",
         "clock",
         "tray",
         "custom/power"
@@ -146,6 +146,13 @@
         "power-saver": ""
       }
     },
+    "bluetooth": {
+        "format": " {status}",
+        "format-connected": " {device_alias}",
+        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "on-click": "blueman-manager" // Command to open bluetooth settings
+    },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
@@ -154,6 +161,7 @@
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click": "nm-connection-editor" // Command to open network settings
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -189,6 +197,6 @@
     "custom/power": {
         "format": " ",
         "tooltip": false,
-        "on-click": "ACTION=$(zenity --width=300 --list --column='Azione' --title='Power Menu' 'Spegni' 'Riavvia' 'Sospendi' 'Logout'); type=\"$ACTION\"; [ \"$type\" == 'Spegni' ] && systemctl poweroff; [ \"$type\" == 'Riavvia' ] && systemctl reboot; [ \"$type\" == 'Sospendi' ] && systemctl suspend; [ \"$type\" == 'Logout' ] && loginctl terminate-user $USER"
+        "on-click": "wlogout" // Better looking power menu for Wayland
     }
 }

@@ -6,6 +6,7 @@
 /* Global Reset and Font Settings */
 * {
     font-family: "Symbols Nerd Font Mono", "JetBrainsMono Nerd Font", "Font Awesome 6 Free", sans-serif;
+
     font-size: 12px;
     font-weight: bold;
     border: none;
@@ -73,14 +74,17 @@ tooltip label {
     padding: 0 10px; /* Si allarga leggermente quando attivo */
 }
 
-/* * Color Accents for Specific Modules 
+/* Color Accents for Specific Modules 
+ 
+ * Color Accents for Specific Modules 
+ * Adjusted for a high-contrast minimalist aesthetic 
  */
 #clock {
-    color: #eed49f; /* Soft Yellow */
+    color: #ffffff; /* Crisp White */
 }
 
 #battery {
-    color: #a6da95; /* Soft Green */
+    color: #a6da95; /* Keep Green for good battery status */
 }
 
 #battery.warning {
@@ -97,11 +101,24 @@ tooltip label {
 }
 
 #pulseaudio {
-    color: #8bd5ca; /* Teal */
+    color: #cba6f7; /* Dark Purple */
 }
 
+/* Added module colors */
 #network {
-    color: #f5bde6; /* Pink */
+    color: #89b4fa; /* Light Blue */
+}
+
+#bluetooth {
+    color: #89b4fa; /* Light Blue to match network */
+}
+
+#backlight {
+    color: #ffffff; /* Crisp White */
+}
+
+#temperature {
+    color: #cba6f7; /* Dark Purple */
 }
 
 #custom-power {
@@ -113,12 +130,4 @@ tooltip label {
 #tray {
     padding-right: 10px;
     padding-left: 10px;
-}
-
-/* Alert Animation for Critical Battery */
-@keyframes blink {
-    to {
-        background-color: #ed8796;
-        color: #1e2030;
-    }
 }
