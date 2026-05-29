@@ -18,14 +18,11 @@
     ],
     "modules-right": [
         "mpd", 
-        "network",
-        "bluetooth", // Added bluetooth here
-        "power-profiles-daemon",
-        "keyboard-state",
+         
+        //"power-profiles-daemon",
         "battery",
-        "clock",
         "tray",
-        "custom/power"
+        "group/clock-power"
     ],
     // Modules configuration
     "hyprland/workspaces": {
@@ -146,22 +143,22 @@
         "power-saver": ""
       }
     },
-    "bluetooth": {
-        "format": " {status}",
-        "format-connected": " {device_alias}",
-        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
-        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-        "on-click": "blueman-manager" // Command to open bluetooth settings
+        "bluetooth": {
+        "format": "",
+        "format-connected": "",
+        "format-connected-battery": " {device_battery_percentage}%",
+        "tooltip-format": "{controller_alias}	{controller_address}
+
+{num_connections} connected",
+        "on-click": "blueman-manager"
     },
-    "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
+        "network": {
+        "format-wifi": "",
+        "format-ethernet": "",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}",
-        "on-click": "nm-connection-editor" // Command to open network settings
+        "format-disconnected": "⚠",
+        "on-click": "nm-connection-editor"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -195,8 +192,16 @@
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
     "custom/power": {
-        "format": " ",
+        "format": "  ",
         "tooltip": false,
         "on-click": "wlogout" // Better looking power menu for Wayland
-    }
+    },
+
+    "group/clock-power": {
+        "orientation": "horizontal",
+        "modules": [
+            "clock",
+            "custom/power"
+        ]
+    },
 }

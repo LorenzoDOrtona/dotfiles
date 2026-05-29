@@ -123,11 +123,22 @@ tooltip label {
 
 #custom-power {
     color: #ed8796;
-    padding-right: 5px;
-    padding-left: 5px;
+    padding-right: 0px;
+    padding-left: 10px;
 }
 
 #tray {
     padding-right: 10px;
     padding-left: 10px;
 }
+
+/* Clock and Power Group Styling */
+#group-clock-power {
+    background-color: #24273a;
+    padding: 0px 6px 0px 14px;
+    margin: 4px 2px;
+    border-radius: 16px;
+    border: 0px solid #363a4f;
+}
+
+
