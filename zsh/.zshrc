@@ -212,4 +212,29 @@ setopt SHARE_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 # SSH Agent Auto-startù
 # Zoxide
-eval "$(zoxide init zsh)"
+eval "$(zoxide init --cmd cd zsh)"
+
+
+# ── ROS2 (solo dentro distrobox) ──────────────────────────
+if [ -f /opt/ros/humble/setup.zsh ]; then
+  source /opt/ros/humble/setup.zsh
+  export LIBGL_ALWAYS_SOFTWARE=1
+  export MESA_GL_VERSION_OVERRIDE=3.3
+  export QT_QPA_PLATFORM=xcb
+  export TURTLEBOT3_MODEL=burger
+fi
+# ──────────────────────────────────────────────────────────
+#
+# ── Dentro distrobox: usa i binari di Fedora ──────────────
+if [ -n "$CONTAINER_ID" ]; then
+  alias nvim="distrobox-host-exec nvim"
+  alias v="distrobox-host-exec nvim"
+  alias zoxide="distrobox-host-exec zoxide"
+  eval "$(distrobox-host-exec zoxide init zsh)"
+fi
+# ──────────────────────────────────────────────────────────
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/lollodo/.local/bin:$PATH"
+export PATH="/home/lollodo/.local/bin:$PATH"
