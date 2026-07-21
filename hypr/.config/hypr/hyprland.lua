@@ -34,10 +34,11 @@ local menu = "hyprlauncher"
 -------------------
 
 hl.on("hyprland.start", function()
+	hl.exec_cmd("hyprlock")
+	hl.exec_cmd("dms run")
 	hl.exec_cmd("waypaper")
 	hl.exec_cmd("nm-applet --indicator")
 	hl.exec_cmd("blueman-applet")
-	hl.exec_cmd("waybar")
 	hl.exec_cmd("firefox")
 	hl.exec_cmd("brightnessctl --device='*kbd_backlight*' set 50%")
 	hl.exec_cmd("brightnessctl set 10%")

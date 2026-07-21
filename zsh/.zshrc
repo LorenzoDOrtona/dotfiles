@@ -53,7 +53,7 @@ alias ll="ls --color -l"
 alias la="ls --color -la"
 alias lt="ls --sort=time"
 alias lat="ls --color -la --sort=time"
-
+alias get_idf='. $HOME/Documents/esp/esp-idf/export.sh'
 alias rh='fc -R'
 #Personalized
 alias v="nvim"
